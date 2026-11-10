@@ -1,0 +1,17 @@
+nav {
+    background-color: beige;
+    box-shadow: 0 0 10px rgb(235, 201, 159);
+}
+
+#nav-container {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+#links {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
