@@ -1,3 +1,4 @@
+import { ChakraProvider } from '@chakra-ui/react'
 import AppRoutes from './router/AppRoutes'
 import { BrowserRouter } from 'react-router-dom'
 
@@ -6,7 +7,9 @@ const App = () => {
     // Sin este elemento, no podríamos ser capaces de
     // tener múltiples páginas, ni navegar entre ellas 
     <BrowserRouter>
-      <AppRoutes />
+      <ChakraProvider>
+        <AppRoutes />
+      </ChakraProvider>
     </BrowserRouter>
   )
 }
