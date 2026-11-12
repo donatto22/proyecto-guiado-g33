@@ -3,16 +3,21 @@ import Products from '../pages/products/Products'
 import Home from '../pages/home/Home'
 import SingleProduct from '../pages/singleProduct/SingleProduct'
 import Error404 from '../pages/error404/Error404'
+import ProductsOutlet from './outlets/ProductsOutlet'
 
 const AppRoutes = () => {
     return (
         <Routes>
             <Route path='/' element={<Home />} />
 
-            {/* <Route path='/products' element={<Products />} />
-            <Route path='/products/:product' element={<SingleProduct />} /> */}
+            {/* <Route element={<ProductsOutlet />}>
+                <Route path='/products' element={<Products />} />
+            </Route>
+            <Route element={<ProductsOutlet />}>
+                <Route path='/products/:product' element={<SingleProduct />} />
+            </Route> */}
 
-            <Route path='/products'>
+            <Route path='/products' element={<ProductsOutlet />}>
                 <Route index element={<Products />} />
                 <Route path=':product' element={<SingleProduct />} />
             </Route>
