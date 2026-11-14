@@ -4,20 +4,24 @@ import Home from '../pages/home/Home'
 import SingleProduct from '../pages/singleProduct/SingleProduct'
 import Error404 from '../pages/error404/Error404'
 import ProductsOutlet from './outlets/ProductsOutlet'
+import { Paths } from './paths'
+import Login from '../pages/login/Login'
 
 const AppRoutes = () => {
     return (
         <Routes>
             <Route path='/' element={<Home />} />
+            <Route path={Paths.login} element={<Login />} />
 
             {/* <Route element={<ProductsOutlet />}>
                 <Route path='/products' element={<Products />} />
             </Route>
+
             <Route element={<ProductsOutlet />}>
                 <Route path='/products/:product' element={<SingleProduct />} />
             </Route> */}
 
-            <Route path='/products' element={<ProductsOutlet />}>
+            <Route path={Paths.products} element={<ProductsOutlet />}>
                 <Route index element={<Products />} />
                 <Route path=':product' element={<SingleProduct />} />
             </Route>
