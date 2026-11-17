@@ -13,14 +13,6 @@ const AppRoutes = () => {
             <Route path='/' element={<Home />} />
             <Route path={Paths.login} element={<Login />} />
 
-            {/* <Route element={<ProductsOutlet />}>
-                <Route path='/products' element={<Products />} />
-            </Route>
-
-            <Route element={<ProductsOutlet />}>
-                <Route path='/products/:product' element={<SingleProduct />} />
-            </Route> */}
-
             <Route path={Paths.products} element={<ProductsOutlet />}>
                 <Route index element={<Products />} />
                 <Route path=':product' element={<SingleProduct />} />

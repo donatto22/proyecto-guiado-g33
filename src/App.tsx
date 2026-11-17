@@ -1,6 +1,7 @@
 import { ChakraProvider } from '@chakra-ui/react'
 import AppRoutes from './router/AppRoutes'
 import { BrowserRouter } from 'react-router-dom'
+import { UserProvider } from './shared/context/UserContext'
 
 const App = () => {
   return (
@@ -8,7 +9,9 @@ const App = () => {
     // tener múltiples páginas, ni navegar entre ellas 
     <BrowserRouter>
       <ChakraProvider>
-        <AppRoutes />
+        <UserProvider>
+          <AppRoutes />
+        </UserProvider>
       </ChakraProvider>
     </BrowserRouter>
   )

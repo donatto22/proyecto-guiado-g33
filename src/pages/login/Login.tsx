@@ -2,8 +2,11 @@ import { Link, Box, Button, FormControl, FormLabel, Heading, HStack, Input, VSta
 import type { SyntheticEvent } from 'react'
 
 import { Link as RouterLink } from 'react-router-dom'
+import { useUser } from '../../shared/hooks/useUser'
 
 const Login = () => {
+    const { setUser } = useUser()
+
     const mostrarDatos = async (e: SyntheticEvent<HTMLFormElement>) => {
         e.preventDefault()
 
@@ -25,6 +28,7 @@ const Login = () => {
 
         const loginData = await response.json()
         localStorage.setItem('user', JSON.stringify(loginData))
+        setUser(loginData)
     }
 
 
