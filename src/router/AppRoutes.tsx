@@ -15,7 +15,7 @@ const AppRoutes = () => {
 
             <Route path={Paths.products} element={<ProductsOutlet />}>
                 <Route index element={<Products />} />
-                <Route path=':product' element={<SingleProduct />} />
+                <Route path=':id' element={<SingleProduct />} />
             </Route>
 
             {/* Hace referencia a todas las rutas que no han sido mencionadas arriba */}
