@@ -2,6 +2,7 @@ import { ChakraProvider } from '@chakra-ui/react'
 import AppRoutes from './router/AppRoutes'
 import { BrowserRouter } from 'react-router-dom'
 import { UserProvider } from './shared/context/UserContext'
+import { Toaster } from 'sonner'
 
 const App = () => {
   return (
@@ -10,6 +11,7 @@ const App = () => {
     <BrowserRouter>
       <ChakraProvider>
         <UserProvider>
+          <Toaster richColors closeButton />
           <AppRoutes />
         </UserProvider>
       </ChakraProvider>
