@@ -1,10 +1,25 @@
-import { Button, Drawer, DrawerBody, DrawerCloseButton, DrawerContent, DrawerFooter, DrawerHeader, DrawerOverlay, HStack, Image, Text, VStack } from '@chakra-ui/react'
+import { Button, ButtonGroup, Drawer, DrawerBody, DrawerCloseButton, DrawerContent, DrawerFooter, DrawerHeader, DrawerOverlay, HStack, Image, Text, VStack } from '@chakra-ui/react'
 import { useCartStore } from '../../store/useCartStore'
 import { MdOutlineRemoveShoppingCart } from 'react-icons/md'
 import { FiTrash } from 'react-icons/fi'
 
+import { pdf } from '@react-pdf/renderer'
+import CarritoPDF from './CarritoPDF'
+
 const CartDrawer = ({ isOpen, onClose }) => {
     const { items, removeItem, clear, increase, decrease } = useCartStore()
+
+    const descargar = async () => {
+        const blob = await pdf(<CarritoPDF carrito={items} />).toBlob()
+        const url = URL.createObjectURL(blob)
+
+        const a = document.createElement('a')
+        a.href = url
+        a.download = 'carrito.pdf'
+        a.click()
+
+        URL.revokeObjectURL(url)
+    }
 
     return (
         <Drawer size='sm'
@@ -52,12 +67,24 @@ const CartDrawer = ({ isOpen, onClose }) => {
                 </DrawerBody>
 
                 <DrawerFooter>
-                    <Button variant='outline' mr={3} onClick={onClose}>
-                        Cancel
-                    </Button>
-                    {
-                        items.length != 0 && <Button colorScheme='blue'>Comprar</Button>
-                    }
+                    <ButtonGroup>
+                        {
+                            items.length != 0 && <Button
+                                size='sm' colorScheme='red' variant='outline' onClick={() => descargar()}>Descargar PDF</Button>
+                        }
+
+                        {
+                            items.length != 0 && <Button size='sm' variant='outline' onClick={clear}>
+                                Vaciar
+                            </Button>
+                        }
+                        <Button size='sm' variant='outline' onClick={onClose}>
+                            Cancel
+                        </Button>
+                        {
+                            items.length != 0 && <Button size='sm' colorScheme='blue'>Comprar</Button>
+                        }
+                    </ButtonGroup>
                 </DrawerFooter>
             </DrawerContent>
         </Drawer>

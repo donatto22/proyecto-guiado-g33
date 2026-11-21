@@ -7,7 +7,7 @@ interface Product {
     thumbnail: string
 }
 
-interface CartItem extends Product {
+export interface CartItem extends Product {
     quantity: number
 }
 
