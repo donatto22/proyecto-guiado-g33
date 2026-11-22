@@ -12,6 +12,10 @@ const App = () => {
       <ChakraProvider>
         <UserProvider>
           <Toaster richColors closeButton />
+          {
+
+            import.meta.env.PAYPAL_SECRET
+          }
           <AppRoutes />
         </UserProvider>
       </ChakraProvider>
