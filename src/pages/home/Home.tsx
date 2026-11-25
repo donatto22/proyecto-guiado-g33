@@ -1,11 +1,11 @@
-import { Box, Button, Heading, Text } from '@chakra-ui/react'
+import { Box, Button, Heading } from '@chakra-ui/react'
 import BaseLayout from '../../shared/layout/BaseLayout'
 import { useUser } from '../../shared/hooks/useUser'
 import { useNameStore } from '../../shared/store/useNameStore'
 import { useCounterStore } from '../../shared/store/useCounterStore'
 
 const Home = () => {
-    const { age, names, setAge } = useUser()
+    const { age } = useUser()
     const { name, setName } = useNameStore()
 
     const { count, increase, decrease } = useCounterStore()
